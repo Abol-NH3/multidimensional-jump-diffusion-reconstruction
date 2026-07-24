@@ -33,8 +33,6 @@ from tempfile import mkdtemp
 warnings.filterwarnings("ignore")
 
 
-
-
 path1='/Users/tabar/Desktop/Abolfazl/JD_Paper/res/'
 # path1="D:/U/M/M-P/res/"
 
@@ -68,7 +66,6 @@ def MY_JUMPY_SDEINT(N, F, G, Ksi2, Lambda, dt, nsteps, x0):
                     x[row, i + 1] += np.sqrt(J[row, n]) * jump_noise[row]
                     
     return x
-
 
 @njit(fastmath=True)
 def MY_EM_SDE(N, F, G, Ksi, dt, nsteps, x0):
@@ -533,7 +530,6 @@ nansa=30 ; n_parallel=15
 timelist=[1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536] 
 
 
-
 """   1D#1   """
 @njit
 def F(x, t):
@@ -629,7 +625,6 @@ def Lambda(x,t):
 
 N=3 ; dt=0.0005 ; x0 = np.array([0,0,0]) ; M=[3,3,3,3] ; mode="lim" ; dxf=True ; histsave=True ; momentssave=True
 dx=0.01
-
 method="itoSRI2"
 exn="3D_#1_itoSRI2_5E4_dxfTrue"
 timelistansacalallDcoef(N,F,G,Ksi2,Lambda,dt,x0, method,nansa,M,mode,exn,path1,n_parallel,timelist,dxf, histsave, dx, momentssave)
@@ -662,7 +657,6 @@ def Lambda(x,t):
 
 N=3 ; dt=0.0005 ; x0 = np.array([0,0,0]) ; M=[3,3,3,3] ; mode="lim" ; dxf=True ; histsave=True ; momentssave=True
 dx=0.01
-
 method="itoSRI2"
 exn="3D_#2_itoSRI2_5E4_dxfTrue"
 timelistansacalallDcoef(N,F,G,Ksi2,Lambda,dt,x0, method,nansa,M,mode,exn,path1,n_parallel,timelist,dxf, histsave, dx, momentssave)
@@ -697,7 +691,6 @@ def Lambda(x,t):
 
 N=3 ; dt=0.0005 ; x0 = np.array([0,0,0]) ; M=[3,3,3,3] ; mode="lim" ; dxf=True ; histsave=True ; momentssave=True
 dx=0.01
-
 method="itoSRI2"
 exn="3D_#3_itoSRI2_5E4_dxfTrue"
 timelistansacalallDcoef(N,F,G,Ksi2,Lambda,dt,x0, method,nansa,M,mode,exn,path1,n_parallel,timelist,dxf, histsave, dx, momentssave)
@@ -728,7 +721,6 @@ def Ksi2(x,t):
 @njit
 def Lambda(x,t):
     return [40*x[0]**2    ,   60*x[1]**2  ,  20*x[2]**2  ,  50*x[3]**2 ]
-
 
 N=4 ; dt=0.0005 ; x0 = np.array([0,0,0,0]) ; M=[3,3,3,3] ; mode="lim" ; dxf=True ; histsave=True ; momentssave=True
 dx=0.01
@@ -802,5 +794,6 @@ dx=0.1
 method="itoSRI2"
 exn="4D_#3_itoSRI2_5E4_dxfTrue"
 timelistansacalallDcoef(N,F,G,Ksi2,Lambda,dt,x0, method,nansa,M,mode,exn,path1,n_parallel,timelist,dxf, histsave, dx, momentssave)
+
 
 
